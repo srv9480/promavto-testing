@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import "./index.css";
 import { requestDog, requestDogGood, requestDogBad } from "./redux/actions";
+import Check from "./components/CheckBox";
 
 const fetchDog = (dispatch) => {
   dispatch(requestDog());
@@ -17,25 +18,26 @@ const fetchDog = (dispatch) => {
 class Page extends PureComponent {
   render() {
     return (
-    <div className="App">
-   <div className="wrapper">
-        <div className="layer">
-          <h1>{`Нажми на кнопку и получи изображение собакена :)`}</h1>
-          <button onClick={() => fetchDog(this.props.dispatch)}>
-            показать
-          </button>
-          {this.props.loading ? (
-            <p>Loading...</p>
-          ) : this.props.error ? (
-            <p>Error</p>
-          ) : (
-            <p>
-              <img src={this.props.url} alt="dogimages"></img>
-            </p>
-          )}
+      <div className="App">
+        <div className="wrapper">
+          <div className="layer">
+            <h1>{`Нажми на кнопку и получи изображение собакена :)`}</h1>
+            <button onClick={() => fetchDog(this.props.dispatch)}>
+              показать
+            </button>
+            {this.props.loading ? (
+              <p>Loading...</p>
+            ) : this.props.error ? (
+              <p>Error</p>
+            ) : (
+              <p>
+                <img src={this.props.url} alt="dogimages"></img>
+              </p>
+            )}
+          </div>
+          <Check />
         </div>
       </div>
-    </div>
     );
   };
 };
