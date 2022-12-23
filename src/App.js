@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import "./styles.css";
+import "./index.css";
 import { requestDog, requestDogGood, requestDogBad } from "./redux/actions";
 
 const fetchDog = (dispatch) => {
@@ -16,11 +16,27 @@ const fetchDog = (dispatch) => {
 
 class Page extends PureComponent {
   render() {
+    return (
     <div className="App">
-      <header className="header">
-
-      </header>
+   <div className="wrapper">
+        <div className="layer">
+          <h1>{`Нажми на кнопку и получи изображение собакена :)`}</h1>
+          <button onClick={() => fetchDog(this.props.dispatch)}>
+            показать
+          </button>
+          {this.props.loading ? (
+            <p>Loading...</p>
+          ) : this.props.error ? (
+            <p>Error</p>
+          ) : (
+            <p>
+              <img src={this.props.url} alt="dogimages"></img>
+            </p>
+          )}
+        </div>
+      </div>
     </div>
+    );
   };
 };
 
