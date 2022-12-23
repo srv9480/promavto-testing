@@ -13,14 +13,20 @@ const fetchDog = (dispatch) => {
     );
 };
 
-function App() {
-  return (
+
+class Page extends PureComponent {
+  render() {
     <div className="App">
       <header className="header">
 
       </header>
     </div>
-  );
-}
+  };
+};
 
-export default App;
+const ConnectedApp = (state) => {
+  console.log(state);
+  return state;
+};
+
+export default connect(ConnectedApp)(Page);
