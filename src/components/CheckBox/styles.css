@@ -1,0 +1,15 @@
+.check-box {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.check-box__flex-container {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+label {
+    cursor: pointer;
+}
